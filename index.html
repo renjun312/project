@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>火星文转化</title>
+    <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js" type="application/javascript"></script>
+    <link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/layui/2.6.8/css/layui.css" type="text/css" rel="stylesheet" />
+    <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/layui/2.6.8/layui.min.js" type="application/javascript"></script>
+    <script src="text.js" type="text/javascript"></script>
+</head>
+<body>
+<form action="" class="layui-form">
+    <div class="layui-form-item" style="padding:20px; ">
+        <textarea placeholder="请输入内容" class="layui-textarea" id="text"></textarea>
+    </div>
+    <button type="button" class="layui-btn" onclick="zhuanhuan()" style="margin-left: 20px">转换</button>
+    <div class="layui-form-item" style="padding:20px; ">
+        <textarea placeholder="" class="layui-textarea" id="text2"></textarea>
+    </div>
+</form>
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form
+    })
+    var t1 = charjt();
+    var t2 = charhx();
+
+    function zhuanhuan() {
+        var text = $("#text").val();
+        var text2 = "";
+        for (var i=0;i<text.length;i++){
+            var tt = t1.indexOf(text[i]);
+            if( tt != -1 ){
+                text2 += t2[tt];
+            } else {
+                text2 += text[i];
+            }
+        }
+        $("#text2").val(text2);
+    }
+</script>
+</body>
+</html>
